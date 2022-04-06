@@ -32,7 +32,7 @@ namespace Task1
         return str;
     }
 
-    auto Caesar::decodeChiper(std::string &str, const std::string_view &key) -> void
+    auto Caesar::decodeChiper(std::string &str, const std::string_view &key) -> std::string
     {
         int i {0};
         auto shift = [&i, &key]()
@@ -56,5 +56,6 @@ namespace Task1
             if(isLower)
                 c = std::tolower(c);
         }
+        return str;
     }
 } // namespace Task1

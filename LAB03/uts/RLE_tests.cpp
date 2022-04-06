@@ -1,6 +1,8 @@
 #include <gtest/gtest.h>
 #include "RLE.h"
+#include <vector>
 
+using namespace Task2;
 class RleTests : public ::testing::Test
 {
 protected:
@@ -10,28 +12,32 @@ protected:
     ~RleTests() override = default;
 };
 
-TEST_F(RleTests, foo)
-{
-
+static Rle sut;
+template <typename... Inputs>
+auto print_inputs(Inputs const&... inputs) {
+    for(auto const& input : {inputs...}) {
+        for(auto const& el : input) std::cout << static_cast<int>(el);
+    }
 }
 
-class RleTestsTestsParameterizedTestFixture : public ::testing::TestWithParam<std::tuple<std::string>>
-{};
-
-TEST_P(RleTestsTestsParameterizedTestFixture,IsCorrectConversionForCaesarCipher)
+TEST_F(RleTests, TestsWithDiffrentInput)
 {
-    auto str = std::get<0>(GetParam());
-    auto key = std::get<1>(GetParam());
-    auto output = std::get<2>(GetParam());
-    EXPECT_EQ(output,sut.decodeChiper(str,key));
-}
+    auto input1 = sut.RLE("!AB*");
+    auto input2 = sut.RLE("!BA$69");
+    auto input3 = sut.RLE("ABC");
 
-INSTANTIATE_TEST_SUITE_P(
-        RleTestsTestsParameterizedTest,
-        RleTestsTestsParameterizedTestFixture,
-        ::testing::Values(
-                std::make_tuple("PTE EP SSLP","PIES","ALA MA KOTA"),
-                std::make_tuple("OWT VA KXMMEFXGF","SESJA","WSB MA STUDENTOW"),
-                std::make_tuple("LTHVTB RGDIGPOXHVP","CPP","JESTEM PROGRAMISTA"),
-                std::make_tuple("GMS","KURCZAK","WSB"),
-                std::make_tuple("SF MDL KPEBP ACXE","PRO","DO YOU WANNA JOIN")));
+    for(auto &el : input1)
+    {
+        std::cout << static_cast<int>(el);
+    }
+    std::cout << std::endl;
+    for(auto &el : input2)
+    {
+        std::cout << static_cast<int>(el);
+    }
+    std::cout << std::endl;
+    for(auto &el : input3)
+    {
+        std::cout << static_cast<int>(el);
+    }
+}

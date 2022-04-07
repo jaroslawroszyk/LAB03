@@ -13,8 +13,7 @@ protected:
 };
 
 class Rlev2TestsParameterizedTestFixture
-        :
-                public ::testing::TestWithParam<std::tuple<std::string, int, std::vector<uint8_t>>>
+        : public ::testing::TestWithParam<std::tuple<std::string, int, std::vector<uint8_t>>>
 {
 };
 

@@ -15,8 +15,8 @@ TEST_F(Rlev2Tests, foo)
 {
     using VI = std::vector<uint8_t>;
     EXPECT_EQ(Rlev2(2).RlE("A"),VI({2,43,146}));
-//    EXPECT_EQ(Rlev2(8).RlE("A"),VI({8,160,32,32,160,32}));
-//    EXPECT_EQ(Rlev2(1).RlE("A"),VI({1,61,86}));
+    EXPECT_EQ(Rlev2(8).RlE("A"),VI({8,160,32,32,160,32}));
+    EXPECT_EQ(Rlev2(1).RlE("A"),VI({1,61,86}));
 
     /*
      * for2:

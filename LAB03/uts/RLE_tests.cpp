@@ -68,7 +68,7 @@ TEST_F(RleTests, TestsWithDiffrentInput)
 class RleTestsParameterizedTestFixture : public ::testing::TestWithParam<std::tuple<std::string,std::vector<uint8_t>>>
 {};
 
-TEST_P(RleTestsParameterizedTestFixture,IsCorrectConversionForCaesarCipher)
+TEST_P(RleTestsParameterizedTestFixture,CheckRle)
 {
     auto[input,expectedResult] = GetParam();
     EXPECT_EQ(expectedResult,sut.RLE(input));
